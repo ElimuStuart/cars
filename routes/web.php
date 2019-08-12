@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CarsController@index');
+
+Route::resource('cars', 'CarsController');
 
 
 
