@@ -26,6 +26,11 @@
                     <td>{{$car->produced_on}}</td>
                     <td>
                     <a href="/cars/{{$car->id}}/edit">Edit</a>
+                    <form method="POST" action="{{action('CarsController@destroy', $car->id)}}">
+                    <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
                     </td>
                     </tr>
                     @endforeach
