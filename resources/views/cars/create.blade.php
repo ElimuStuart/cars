@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mb-3">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
             
-                <form>
+                <form method="POST" action="{{action('CarsController@store')}}">
+                    <input name="_token" type="hidden" value="{{ csrf_token() }}">
                     <div class="form-group">
                         <label for="carMake">Make</label>
                         <input type="text" class="form-control" id="carMake" aria-describedby="emailHelp" placeholder="Make" name="make">

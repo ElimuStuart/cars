@@ -20,7 +20,7 @@
                     @foreach($cars as $car)
                     <tr>
                     <th scope="row">{{$loop->iteration}}</th>
-                    <td>{{$car->make}}</td>
+                    <td><a href="cars/{{$car->id}}">{{$car->make}}</a></td>
                     <td>{{$car->model}}</td>
                     <td>{{$car->produced_on}}</td>
                     </tr>

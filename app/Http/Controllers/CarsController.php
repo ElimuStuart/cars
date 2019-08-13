@@ -25,7 +25,7 @@ class CarsController extends Controller
      */
     public function create()
     {
-        //
+        return view('cars.create');
     }
 
     /**
@@ -36,7 +36,19 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'make'=> 'required',
+            'model' => 'required',
+            'produced_on' => 'required'
+        ]);
+
+        $car = new Car();
+        $car->make = $request->input('make');
+        $car->model = $request->input('model');
+        $car->produced_on = $request->input('produced_on');
+        $car->save();
+
+        return redirect('/cars')->with('success', 'car entry created successfully');
     }
 
     /**

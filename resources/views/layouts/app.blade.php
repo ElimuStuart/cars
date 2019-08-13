@@ -34,7 +34,7 @@
       </header>
 
       <main role="main">
-
+        @include('includes.messages')
         @yield('content')
 
       </main>
