@@ -59,7 +59,7 @@ class CarsController extends Controller
      */
     public function show($id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -70,7 +70,9 @@ class CarsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $car = Car::find($id);
+        return view('cars.edit')->with('car', $car);
+
     }
 
     /**
@@ -82,7 +84,19 @@ class CarsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'make'=> 'required',
+            'model' => 'required',
+            'produced_on' => 'required'
+        ]);
+
+        $car = Car::find($id);
+        $car->make = $request->input('make');
+        $car->model = $request->input('model');
+        $car->produced_on = $request->input('produced_on');
+        $car->save();
+
+        return redirect('/cars')->with('success', 'car entry updated successfully');
     }
 
     /**

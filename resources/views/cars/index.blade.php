@@ -13,6 +13,7 @@
                     <th scope="col">Make</th>
                     <th scope="col">Model</th>
                     <th scope="col">Produced On</th>
+                    <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,9 +21,12 @@
                     @foreach($cars as $car)
                     <tr>
                     <th scope="row">{{$loop->iteration}}</th>
-                    <td><a href="cars/{{$car->id}}">{{$car->make}}</a></td>
+                    <td>{{$car->make}}</td>
                     <td>{{$car->model}}</td>
                     <td>{{$car->produced_on}}</td>
+                    <td>
+                    <a href="/cars/{{$car->id}}/edit">Edit</a>
+                    </td>
                     </tr>
                     @endforeach
                     @endif
