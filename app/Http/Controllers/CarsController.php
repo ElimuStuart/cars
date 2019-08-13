@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Car;
 
 class CarsController extends Controller
 {
@@ -13,7 +14,8 @@ class CarsController extends Controller
      */
     public function index()
     {
-        //
+        $cars = Car::orderBy('created_at', 'desc')->paginate(12);
+        return view('cars.index')->with('cars', $cars);
     }
 
     /**

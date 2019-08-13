@@ -40,9 +40,10 @@
       </main>
 
       <footer class="footer">
-        <p>&copy; Company 2017</p>
+        <p>&copy; Company <script>document.write(new Date().getFullYear());</script></p>
       </footer>
 
     </div> <!-- /container -->
+
   </body>
 </html>
