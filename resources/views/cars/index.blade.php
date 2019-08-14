@@ -29,7 +29,7 @@
                     <form method="POST" action="{{action('CarsController@destroy', $car->id)}}">
                     <input name="_token" type="hidden" value="{{ csrf_token() }}">
                     <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="">🚮</button>
                     </form>
                     </td>
                     </tr>
